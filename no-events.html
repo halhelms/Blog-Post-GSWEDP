@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		<a href="#" id="A" class="Agitater">Agitate Box A</a>
+		<a href="#" id="B" class="Agitater">Agitate Box B</a>		
+		<a href="#" id="C" class="Agitater">Agitate Box C</a>
+
+	
+
+		<div class="message" id="box_A">I am Box 'A'</div>
+		
+		<div class="message" id="box_B">I am Box 'B'</div>
+		
+		<div class="message" id="box_C">I am Box 'C'</div>
+		
+		<ul id="clickers"></ul>	
+		
+		<script type="text/javascript">
+			$( '.Agitater' ).click( function() {
+				$('#box_' + $( this )
+					.attr( 'id' ) )
+					.fadeIn(100)
+					.animate({top:"-=20px"},100)
+					.animate({top:"+=20px"},100)
+					.animate({top:"-=20px"},100)
+					.animate({top:"+=20px"},100)
+					.animate({top:"-=20px"},100)
+					.animate({top:"+=20px"},100);
+				// new code
+				$( '#clickers' ).append( $( '<li>' + $( this ).attr( 'id' ) + ' was clicked.</li>'));
+			});
+		</script>
+		
+		<style>
+			.details{
+				display: none;
+			}
+			
+			.message{
+				border:1px solid #CCCCCC;
+				padding: 15px;
+				width: 150px;
+				background-color:#F4F4F8;
+				text-align:justify;
+				position:relative;
+				top:50px;
+				display: inline;
+				margin: 1.75px;
+			}
+			
+			#clickers{
+				position:absolute;
+				top: 200px;
+			}
+			
+			a{
+				display : block;
+			}
+		</style>
+	</body>
+</html>
